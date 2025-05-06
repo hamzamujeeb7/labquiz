@@ -1,16 +1,27 @@
-# flutter_application_1
+## 🚀 Hero Animation App (Flutter)
 
-A new Flutter project.
+This Flutter app displays a list of social media logos (e.g., Facebook, Instagram). Tapping a logo transitions to a detail screen using a smooth **Hero animation**.
 
-## Getting Started
+### Flow of the App
 
-This project is a starting point for a Flutter application.
+1. `main.dart` launches `MyApp`, which sets the home to `LogoListScreen`.
+2. `LogoListScreen` shows a `ListView` of logos using `Image.asset`, each wrapped in a `Hero` widget.
+3. Tapping a logo adds a slight delay and navigates to `LogoDetailScreen`.
+4. `LogoDetailScreen` also uses the same `Hero` tag to show an enlarged image with animation.
 
-A few resources to get you started if this is your first Flutter project:
+###  Key Concepts
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Hero widget** for shared element transition.
+- **ListView.builder** for rendering logo items.
+- **Navigator.push** with delay for smooth UX.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+###  Assets
+
+Images are stored in the `/images` folder. Make sure to declare them in `pubspec.yaml`:
+```yaml
+flutter:
+  assets:
+    - images/facebook.png
+    - images/instagram.jpeg
+```
+
