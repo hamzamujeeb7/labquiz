@@ -12,7 +12,6 @@ class Book {
   Book({required this.title, required this.author});
 }
 
-// MyApp widget initializes the MaterialApp
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -60,11 +59,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Text(
                       book.title,
-                      style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Text(
                       book.author,
-                      style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
                   ],
                 ),
@@ -76,15 +81,15 @@ class _HomeScreenState extends State<HomeScreen> {
               final updatedBook = await Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => BookDetailScreen(
-                    book: book,
-                    index: index,
-                    deleteBook: deleteBook,
-                    updateBook: updateBook,
-                  ),
+                  builder:
+                      (context) => BookDetailScreen(
+                        book: book,
+                        index: index,
+                        deleteBook: deleteBook,
+                        updateBook: updateBook,
+                      ),
                 ),
               );
-
 
               if (updatedBook != null) updateBook(index, updatedBook);
             },
@@ -131,10 +136,7 @@ class AddBookScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                final newBook = Book(
-                  title: title.text,
-                  author: author.text,
-                );
+                final newBook = Book(title: title.text, author: author.text);
                 Navigator.pop(context, newBook);
               },
               style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
@@ -173,13 +175,17 @@ class BookDetailScreen extends StatelessWidget {
             Hero(
               tag: 'bookTitle$index',
               child: Material(
-                child: Text('Book Title: ${book.title}',
+                child: Text(
+                  'Book Title: ${book.title}',
                   style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
             SizedBox(height: 10),
-            Text("Author: ${book.author}", style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)),
+            Text(
+              "Author: ${book.author}",
+              style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
+            ),
             SizedBox(height: 20),
             Row(
               children: [
@@ -207,7 +213,7 @@ class BookDetailScreen extends StatelessWidget {
                   child: Text("Delete"),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
@@ -225,8 +231,6 @@ class EditBookScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold(
       appBar: AppBar(title: Text("Edit Book")),
       body: Padding(
@@ -258,4 +262,5 @@ class EditBookScreen extends StatelessWidget {
     );
   }
 }
+
 
