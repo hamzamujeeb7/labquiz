@@ -8,9 +8,11 @@ void main() {
 class Book {
   String title;
   String author;
+
   Book({required this.title, required this.author});
 }
 
+// MyApp widget initializes the MaterialApp
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -83,7 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               );
 
-              timeDilation = 1.0;
 
               if (updatedBook != null) updateBook(index, updatedBook);
             },
@@ -224,8 +225,7 @@ class EditBookScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    title.text = book.title;
-    author.text = book.author;
+    
 
     return Scaffold(
       appBar: AppBar(title: Text("Edit Book")),
@@ -258,3 +258,4 @@ class EditBookScreen extends StatelessWidget {
     );
   }
 }
+
