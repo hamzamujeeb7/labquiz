@@ -55,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    timeDilation=10;
     return Scaffold(
       appBar: AppBar(title: Text('My Favourite Books')),
       body: ListView.builder(
@@ -86,10 +87,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            onTap: () async {
-              timeDilation = 10;
+            onTap: ()  {
+              
 
-              final updatedBook = await Navigator.push(
+             Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
@@ -101,8 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                 ),
               );
-
-              if (updatedBook != null) updateBook(index, updatedBook);
             },
           );
         },
@@ -273,6 +272,7 @@ class EditBookScreen extends StatelessWidget {
     );
   }
 }
+
 
 
 
