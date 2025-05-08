@@ -35,12 +35,23 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Book> books = [];
 
-  void addBook(Book book) => setState(() => books.add(book));
+  void addBook(Book book) {
+    setState(() {
+      books.add(book);
+    });
+  }
 
-  void updateBook(int index, Book updatedBook) =>
-      setState(() => books[index] = updatedBook);
+  void updateBook(int index, Book updatedBook) {
+    setState(() {
+      books[index] = updatedBook;
+    });
+  }
 
-  void deleteBook(int index) => setState(() => books.removeAt(index));
+  void deleteBook(int index) {
+    setState(() {
+      books.removeAt(index);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -262,5 +273,6 @@ class EditBookScreen extends StatelessWidget {
     );
   }
 }
+
 
 
